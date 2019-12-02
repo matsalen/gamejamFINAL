@@ -2,46 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class PlayerManager : Personagens
+
+public class InimigoController : Personagens
 {
-    #region Variaveis
-    Collider colPlayer;
-    [SerializeField] float x;
-    [SerializeField] float z;
 
-
-
-
-
-    #endregion
-
+    GameObject player;
    
 
 
-
-    void Start()
+    private void Start()
     {
-       
-        colPlayer = GetComponent<Collider>();
         agent = GetComponent<NavMeshAgent>();
-        freq = 1 / freq_Hz;
-        rb = GetComponent<Rigidbody>();
+        player = GameObject.FindWithTag("Player");
 
     }
 
 
-    void Update()
+    private void Update()
     {
-        Camera.main.transform.position = new Vector3(transform.position.x, Camera.main.transform.position.y, transform.position.z) - new Vector3(x, 0, z);
-
-        if (Input.GetMouseButton(1))
-        {
-            RaycastHit ray;
-
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out ray, 100))
-                agent.destination = ray.point;
-        }
+        GotoNextPoint();
    
+
+
+
         if (Input.GetKeyDown(voltar))
         {
             if (posicoes.Count > 1 && rotacoes.Count > 1)
@@ -54,8 +37,6 @@ public class PlayerManager : Personagens
 
             }
 
-                colPlayer.enabled = false;
-            Debug.Log(colPlayer.enabled);
 
 
         }
@@ -70,8 +51,7 @@ public class PlayerManager : Personagens
                 rb.angularVelocity = rbAngularVelocity[rbAngularVelocity.Count - 1];
             }
             agent.destination = transform.position;
-            colPlayer.enabled = true; ;
-            Debug.Log(colPlayer.enabled + "a");
+
         }
 
         if (fixedupdate_50Hz == false)
@@ -92,7 +72,7 @@ public class PlayerManager : Personagens
 
 
         }
-     }
+    }
 
     void FixedUpdate()
     {
@@ -111,4 +91,10 @@ public class PlayerManager : Personagens
         }
     }
 
+    void GotoNextPoint()
+    {
+
+        agent.destination = player.transform.position;
+
+    }
 }
