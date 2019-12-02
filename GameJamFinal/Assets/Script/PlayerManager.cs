@@ -24,7 +24,10 @@ public class PlayerManager : MonoBehaviour
     Rigidbody rb;
     #endregion
 
-    // Start is called before the first frame update
+   
+
+
+
     void Start()
     {
 
@@ -35,7 +38,7 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         Camera.main.transform.position = new Vector3(transform.position.x, Camera.main.transform.position.y, transform.position.z) - new Vector3(x, 0, z);
