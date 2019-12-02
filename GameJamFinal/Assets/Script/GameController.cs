@@ -18,8 +18,8 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        if (this.gameObject == null) instancia = this;
-        else if (instancia != null) Destroy(this.gameObject);
+        if (instancia == null) instancia = this;
+        else if (instancia != this) Destroy(this.gameObject);
 
 
     }
@@ -70,5 +70,6 @@ public class GameController : MonoBehaviour
         {
             joiaRoxa.SetActive(true);
         }
+        
     }
 }
