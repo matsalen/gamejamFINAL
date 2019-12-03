@@ -9,7 +9,7 @@ public class Coletavel : MonoBehaviour
     {
         if (other.tag.Equals("Player"))
         {
-            GameController.instancia.CarregaJoia(this.tag.ToString());
+            GameController.instancia.CarregaJoia(this.tag);
             Destroy(this);
         }
     }
