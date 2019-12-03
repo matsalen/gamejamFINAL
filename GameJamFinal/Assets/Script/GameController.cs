@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
 
     public void CarregaJoia(string cor)
     {
-        if (cor == joiaAzul.ToString())
+        if (cor == "joiaAzul")
             joiaAzul.SetActive(true);
         else joiaVermelha.SetActive(true);
 

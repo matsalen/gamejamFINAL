@@ -5771,37 +5771,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 627645882}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &632504136 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1403395410595554, guid: cf2b180cac3506c4a9a0ab45fe990065,
-    type: 3}
-  m_PrefabInstance: {fileID: 1667630411}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &632504138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632504136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57cdef6185a504e49aa018292c687dce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &632504139
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632504136}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.38, y: 0.38, z: 0.39}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &651230815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15394,6 +15363,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1963124289347922, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
       propertyPath: m_TagString
+      value: joiaAzul
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403395410595554, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
+      propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4511282862961232, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
@@ -15439,10 +15412,6 @@ PrefabInstance:
     - target: {fileID: 4511282862961232, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1403395410595554, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
-      propertyPath: m_TagString
-      value: joiaAzul
       objectReference: {fileID: 0}
     - target: {fileID: 198258531152213102, guid: cf2b180cac3506c4a9a0ab45fe990065,
         type: 3}
