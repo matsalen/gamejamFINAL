@@ -8,7 +8,7 @@ public class ArmadilhaController : MonoBehaviour
     Vector3 posinicial;
     public Transform target;
     public float speed;
-    bool Ativar = false;
+    bool Ativar = true;
     bool voltar = false;
     private void Start()
     {
