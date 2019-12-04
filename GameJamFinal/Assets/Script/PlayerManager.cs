@@ -10,7 +10,7 @@ public class PlayerManager : Personagens
     [SerializeField] float z;
     KeyCode Acelerar = KeyCode.E;
     [SerializeField] float velocidadePlayer;
-    float tempo = 1f;
+    float tempo = 5f;
 
 
     #endregion
@@ -48,7 +48,7 @@ public class PlayerManager : Personagens
             if(Input.GetKeyDown(KeyCode.E))
             {
                 agent.speed = velocidadePlayer;
-                tempo -= 1;
+                StartCoroutine(Tempo());
             }
 
             if(tempo <= 0 )
@@ -58,7 +58,8 @@ public class PlayerManager : Personagens
             }
 
         }
-        
+
+        Debug.Log(tempo);
 
         if(GameController.ativaVoltar == true)
         {
@@ -85,7 +86,7 @@ public class PlayerManager : Personagens
         {
             voltando = false;
         }
-   
+  
 
         if (Input.GetKeyUp(voltar))
         {
@@ -125,7 +126,25 @@ public class PlayerManager : Personagens
 
 
         }
-     }
+
+       if(tempo <= 0)
+       {
+            tempo = 5;
+       }
+    }
+
+
+
+    IEnumerator Tempo()
+    {
+
+        yield return new WaitForSeconds(1);
+        if (--tempo > 0)
+        {
+            StartCoroutine(Tempo());
+        }
+        
+    }
 
     void FixedUpdate()
     {
