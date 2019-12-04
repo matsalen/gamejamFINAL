@@ -8,14 +8,14 @@ public class PlayerManager : Personagens
     Collider colPlayer;
     [SerializeField] float x;
     [SerializeField] float z;
-
-
-
+    KeyCode Acelerar = KeyCode.E;
+    [SerializeField] float velocidadePlayer;
+    float tempo = 1f;
 
 
     #endregion
 
-   
+
 
 
 
@@ -41,37 +41,70 @@ public class PlayerManager : Personagens
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out ray, 100))
                 agent.destination = ray.point;
         }
-   
-        if (Input.GetKeyDown(voltar))
-        {
-            if (posicoes.Count > 1 && rotacoes.Count > 1)
-            {
-                voltando = true;
-                if (rb)
-                {
-                    rb.useGravity = false;
-                }
 
+        if(GameController.ativaAcelerar == true)
+        {
+
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                agent.speed = velocidadePlayer;
+                tempo -= 1;
             }
 
-                colPlayer.enabled = false;
-            Debug.Log(colPlayer.enabled);
-
+            if(tempo <= 0 )
+            {
+                agent.speed = 3.5f;
+                GameController.ativaAcelerar = false;
+            }
 
         }
+        
+
+        if(GameController.ativaVoltar == true)
+        {
+            if (Input.GetKeyDown(voltar))
+            {
+
+                if (posicoes.Count > 1 && rotacoes.Count > 1)
+                {
+                    voltando = true;
+                    if (rb)
+                    {
+                        rb.useGravity = false;
+                    }
+
+                }
+
+                    colPlayer.enabled = false;
+
+
+            }
+          
+        }
+        else
+        {
+            voltando = false;
+        }
+   
 
         if (Input.GetKeyUp(voltar))
         {
-            voltando = false;
-            if (rb)
-            {
+          
+
+             voltando = false;
+              if (rb)
+              {
                 rb.useGravity = true;
                 rb.velocity = rbVelocity[rbVelocity.Count - 1];
                 rb.angularVelocity = rbAngularVelocity[rbAngularVelocity.Count - 1];
-            }
-            agent.destination = transform.position;
-            colPlayer.enabled = true; ;
-            Debug.Log(colPlayer.enabled + "a");
+              }
+              agent.destination = transform.position;
+              colPlayer.enabled = true; ;
+             
+            GameController.ativaVoltar = false;
+            Debug.Log(GameController.ativaVoltar);
+
+
         }
 
         if (fixedupdate_50Hz == false)

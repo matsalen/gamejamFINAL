@@ -19,7 +19,7 @@ public class Personagens : MonoBehaviour
     protected  bool fixedupdate_50Hz = false;
     protected float freq;
     protected float cronometro;
-    protected bool voltando = false;
+    public static bool voltando = false;
     protected NavMeshAgent agent;
 
 

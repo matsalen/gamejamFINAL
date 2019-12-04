@@ -9,6 +9,9 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject botaoRecomecar, blur, joiaAzul, joiaVermelha, joiaRoxa;
     [SerializeField] Text textoTempo;
     [SerializeField] float tempoJogo;
+    public static bool ativaVoltar;
+    public static bool ativaAcelerar;
+    public static bool ativaParar;
 
 
 
@@ -62,13 +65,21 @@ public class GameController : MonoBehaviour
 
     public void CarregaJoia(string cor)
     {
+ 
         if (cor == "joiaAzul")
+        {
+            ativaVoltar = true;
             joiaAzul.SetActive(true);
+        }
         else joiaVermelha.SetActive(true);
+        {
+            ativaAcelerar = true;
+        }
 
         if (joiaAzul.activeSelf && joiaVermelha.activeSelf)
         {
             joiaRoxa.SetActive(true);
+            ativaParar = true;
         }
         
     }
