@@ -48,6 +48,21 @@ public class GameController : MonoBehaviour
         {
             GameoverPal();
         }
+
+        if(ativaVoltar == false)
+        {
+            joiaAzul.SetActive(false);
+        }
+
+        if (ativaAcelerar == false)
+        {
+            joiaVermelha.SetActive(false);
+        }
+
+        if (ativaParar == false)
+        {
+            joiaRoxa.SetActive(false);
+        }
     }
 
     void GameoverPal()
@@ -69,6 +84,7 @@ public class GameController : MonoBehaviour
         if (cor == "joiaAzul")
         {
             ativaVoltar = true;
+            
             joiaAzul.SetActive(true);
         }
         else joiaVermelha.SetActive(true);
@@ -76,11 +92,13 @@ public class GameController : MonoBehaviour
             ativaAcelerar = true;
         }
 
+
+
         if (joiaAzul.activeSelf && joiaVermelha.activeSelf)
         {
             joiaRoxa.SetActive(true);
             ativaParar = true;
         }
-        
+
     }
 }
